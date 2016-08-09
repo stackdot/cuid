@@ -1,0 +1,23 @@
+{
+  "name": "cuid",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://drone.stackdot.com/api/badges/stackdot/cuid/status.svg)](https://drone.stackdot.com/stackdot/cuid)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackdot/cuid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stackdot/cuid/issues"
+  },
+  "homepage": "https://github.com/stackdot/cuid#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "lodash": "^4.14.2"
+  }
+}
