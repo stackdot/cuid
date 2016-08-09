@@ -1,9 +1,9 @@
-FROM node:5.11.0-slim
+FROM node:6.3.1-slim
 
 # Install Deps
-WORKDIR /api
+WORKDIR /ui
 
 # Copy App
-COPY . /api/
+COPY . /ui/
 
 CMD [ "npm", "start" ]
