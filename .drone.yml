@@ -1,10 +1,12 @@
-build:
-  image: node:6.3.1
-  pull: true
-  commands:
-    - npm update
-#    - npm test
 
+
+build:
+  compile:
+    image: node:6.3.1
+    pull: true
+    commands:
+      - npm update
+      - npm run build
 
 
 publish:
@@ -13,14 +15,14 @@ publish:
     tag:
       - '$${BRANCH/master/latest}'
       - '$$BRANCH.$$BUILD_NUMBER'
-    registry: registry.hub.docker.com
-    username: $$DOCKERHUB_USER
-    password: $$DOCKERHUB_PASSWORD
-    email: qrpike@stackdot.com
+    registry: $$DOCKER_REGISTRY
+    username: $$DOCKER_USER
+    password: $$DOCKER_PASSWORD
+    email: $$DOCKER_EMAIL
     storage_driver: overlay
-
-
+  
 
 cache:
   mount:
     - node_modules
+
