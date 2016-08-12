@@ -2,7 +2,7 @@
 
 
 // passed in ops:
-const gulp 				= require('gulp')
+let gulp 				= require('gulp')
 const lodash 			= require('lodash')
 const browserSync 		= require('browser-sync')
 const gulpSequence 		= require('gulp-sequence').use(gulp)

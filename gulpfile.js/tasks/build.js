@@ -19,7 +19,7 @@ module.exports = function( ops ){
 			'webpack:production',
 			'fonts',
 			'images'
-		], cb );
+		], cb);
 
 	});
 
