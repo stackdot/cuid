@@ -16,4 +16,8 @@
 	&.complete {
 		background: green;
 	}
+
+	&.failed {
+		background: red;
+	}
 }

@@ -9,10 +9,12 @@
 			<h1 class="md-toolbar-tools"> Cron UI </h1>
 		</md-toolbar>
 		<md-content layout-padding flex>
-			<md-button md-no-ink aria-label="Create Job" class="md-primary">Create Job</md-button>	
-			<div ng-repeat="job in data.jobs">
-				{{job.name}}
-			</div>
+			<md-button md-no-ink aria-label="Create Job" class="md-primary">Create Job</md-button>
+			<a ng-repeat="job in data.jobs" ui-sref="jobs.job({ id:job._id })">
+				<div>
+					{{job.name}}
+				</div>
+			</a>
 		</md-content>
 	</md-sidenav>
 </div>
