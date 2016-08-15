@@ -5,32 +5,90 @@
 const angular = require('angular')
 const router = require('angular-ui-router')
 require('angular-animate')
+require('angular-moment')
 require('angular-aria')
+require('angular-sanitize')
 require('angular-material/angular-material')
+
+var layoutTpl = require('./layout.tpl.html')
 
 
 // Local modules:
-require('modules/test')
+require('modules/sidebar')
+require('modules/job-list')
+require('modules/job-info')
+require('modules/create-job')
+require('modules/job-history')
 
 
 // Create App:
 angular.module('app', [
-	'ui.router',
-	'app.test',
 	'ngMaterial',
-]).config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', function( $stateProvider, $urlRouterProvider, $mdThemingProvider ){
+	'angularMoment',
+	'ui.router',
+	'app.sidebar',
+	'app.jobInfo',
+	'app.jobHistory',
+	'app.createJob',
+	'app.jobList'
+]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$mdThemingProvider', function( $stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider ){
+
+	// $locationProvider.html5Mode({
+	// 	enabled: true,
+	// 	requireBase: false,
+	// 	rewriteLinks: false
+	// });
+
+	$mdThemingProvider.theme('default')
+		.primaryPalette('blue')
+		.accentPalette('green')
 
 	// URL Routing:
-	$urlRouterProvider.otherwise('/test')
+	$urlRouterProvider.otherwise('/jobs/all')
 	$stateProvider
-		.state('test', {
-			url: '/test',
+		.state('jobs', {
+			url: '/jobs',
+			abstract: true,
+			template: layoutTpl,
+		})
+		.state('jobs.all',{
+			url: '/all',
 			views: {
+				sidebar: {
+					template: '<sidebar></sidebar>'
+				},
 				content: {
-					template: '<test></test>',
+					template: '<job-list></job-list>'
 				}
 			}
 		})
+		.state('jobs.job', {
+			url: '/:id',
+			views: {
+				sidebar: {
+					template: '<sidebar></sidebar>'
+				},
+				content: {
+					template: '<job-info job-id="{{jobId}}"></job-info>',
+					controller: ['$scope', '$stateParams', function( $scope, $stateParams ){
+						$scope.jobId = $stateParams.id
+					}]
+				}
+			}
+		})
+		.state('jobs.job.history', {
+			url: '/:historyId',
+			views: {
+				details: {
+					template: '<job-history job-id="{{jobId}}" history-id="{{historyId}}"></job-history>',
+					controller: ['$scope', '$stateParams', function( $scope, $stateParams ){
+						$scope.jobId = $stateParams.id
+						$scope.historyId = $stateParams.historyId
+					}]
+				}
+			}
+		})
+		
 
 
 }])

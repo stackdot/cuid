@@ -1,0 +1,23 @@
+<div layout="column" flex="auto">
+	<md-toolbar md-scroll-shrink md-theme="default">
+		<div class="md-toolbar-tools">
+			<h3>
+				<md-button hide-gt-sm class="md-warn" ng-click="sidebar()">Sidebar</md-button> <span> Job List </span>
+			</h3>
+		</div>
+	</md-toolbar>
+	<md-content>
+		<md-list>
+			<md-list-item class="md-2-line" ng-repeat="job in data.jobs" ui-sref="jobs.job({ id:job._id })">
+				<div class="md-list-item-text" layout="column" flex="grow">
+					<h3>{{job.name}}</h3>
+					<h4>enabled: {{job.enabled}}</h4>
+					<p>Type: {{job.type}}</p>
+				</div>
+				<div>
+					Enabled: {{job.enabled}}
+				</div>
+			</md-list-item>
+		</md-list>
+	</md-content>
+</div>

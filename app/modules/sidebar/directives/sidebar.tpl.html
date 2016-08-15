@@ -1,0 +1,18 @@
+<div layout="row">
+	<md-sidenav
+		class="md-sidenav-left"
+		md-component-id="sidebar"
+		md-is-locked-open="$mdMedia('gt-sm')"
+		md-whiteframe="4"
+		layout="column">
+		<md-toolbar class="md-theme-red">
+			<h1 class="md-toolbar-tools"> Cron UI </h1>
+		</md-toolbar>
+		<md-content layout-padding flex>
+			<md-button md-no-ink aria-label="Create Job" class="md-primary">Create Job</md-button>	
+			<div ng-repeat="job in data.jobs">
+				{{job.name}}
+			</div>
+		</md-content>
+	</md-sidenav>
+</div>

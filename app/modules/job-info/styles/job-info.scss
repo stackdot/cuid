@@ -1,0 +1,19 @@
+// Module styling
+
+
+.details {
+	padding: 20px 30px;
+}
+.ico-wrapper {
+	padding: 24px 5px;
+}
+.ico-status {
+	width: 30px;
+	height: 30px;
+	background: #f2f2f2;
+	border-radius: 100%;
+
+	&.complete {
+		background: green;
+	}
+}

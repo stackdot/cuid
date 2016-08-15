@@ -1,0 +1,39 @@
+<md-content flex="100" class="md-body-1">
+	
+	<section class="details">
+
+		<div class="type" layout="row" layout-align="center center">
+			<img style="max-width: 100px;" src="/images/type-{{data.job.type}}.png" alt="">
+			<h2 style="margin-left:30px;" class="md-display-2">{{data.job.type}}</h2>
+		</div>
+
+		<h1 class="md-display-1">{{data.job.name}}</h1>
+		<p>Created: {{data.job.created}} ( <span am-time-ago="data.job.created"></span> ) </p>
+		<p>Prority: {{data.job.priority}}</p>
+		
+	</section>
+
+	<div ui-view="details">
+		<md-subheader>
+			Execution History:
+		</md-subheader>
+	    
+	    <md-list>
+			<md-list-item class="md-2-line" ng-repeat="history in data.history" ui-sref="jobs.job.history({ id:data.job._id, historyId: history._id })">
+				<div layout="row" layout-align="space-between center" flex="100">
+					<div class="ico-wrapper">
+						<div class="ico-status {{history.state}}"></div>
+					</div>
+					<div flex="auto">
+						{{history.state}}
+					</div>
+					<div flex="auto">
+						ans
+					</div>
+				</div>
+			</md-list-item>
+	    </md-list>
+
+	</div>
+
+</md-content>

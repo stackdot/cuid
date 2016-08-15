@@ -21,7 +21,7 @@ module.exports = function( ops ){
 
 		PROD = PROD || Boolean.parse(process.env.prod);
 		var context = path.join( __dirname, '../../', config.app, config.tasks.webpack.src );
-		var dest = path.join( __dirname, '../../', config.dest, config.tasks.webpack.dest );
+		var dest = path.join( __dirname, '../../', config.dest, config.tasks.webpack.dest, 'js' );
 		var modulesDirectories = path.join( __dirname, '../../node_modules/' );
 
 		// Default DEV settings:
@@ -31,7 +31,7 @@ module.exports = function( ops ){
 			output: {
 				path: dest,
 				filename: config.tasks.webpack.output,
-				publicPath: '/assets/'
+				publicPath: '/js/'
 			},
 			node: {
 				fs: 'empty'

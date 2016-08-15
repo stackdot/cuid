@@ -1,17 +1,13 @@
 <html><head>
 	
-	<title>Cuid</title>
+	<title>CUId</title>
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
 	<link rel="stylesheet" type="text/css" href="/styles/app.css">
 
-</head><body ng-app="app" ng-controller="app.main" layout="row" ng-cloak flex>
-	<section layout="column" flex>
+</head><body ng-app="app" ng-controller="app.main" layout="row" ng-cloak flex="none">
 
-		<h2>Cuid</h2>
-		<p>Cron User Interface ( for docker )</p>
-		<div ui-view="content" ng-cloak>Not Working..</div>
+	<section ui-view flex="100" layout="row"></section>
 
-	</section>
-	<script src="vendors.bundle.js"></script>
-	<script src="app.bundle.js"></script>
+	<script src="/js/vendors.bundle.js"></script>
+	<script src="/js/app.bundle.js"></script>
 </body></html>

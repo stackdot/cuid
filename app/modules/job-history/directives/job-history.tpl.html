@@ -1,0 +1,13 @@
+<div id="job-history">
+	
+	<h3>{{ctrl.title}}</h3>
+	<md-subheader>
+		Logs:
+	</md-subheader>
+
+	<div class="md-headline">Logs:</div>
+	<div class="log-line" ng-repeat="line in data.history.logs track by $index">
+		<div ng-bind-html="line | logParser"></div>
+	</div>
+
+</div>
