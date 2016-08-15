@@ -1,6 +1,6 @@
-<md-content flex="100" class="md-body-1">
+<md-content flex="100" class="md-body-1" layout="column">
 	
-	<section class="details">
+	<section class="details" flex="none">
 
 		<div class="type" layout="row" layout-align="center center">
 			<img style="max-width: 100px;" src="/images/type-{{data.job.type}}.png" alt="">
@@ -13,7 +13,7 @@
 		
 	</section>
 
-	<div ui-view="details">
+	<md-content ui-view="details" flex="auto">
 		<md-subheader>
 			Execution History:
 		</md-subheader>
@@ -28,12 +28,15 @@
 						{{history.state}}
 					</div>
 					<div flex="auto">
-						ans
+						
+					</div>
+					<div flex="none">
+						Run: <span am-time-ago="history.created"></span>
 					</div>
 				</div>
 			</md-list-item>
 	    </md-list>
 
-	</div>
+	</md-content>
 
 </md-content>
