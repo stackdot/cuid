@@ -2,8 +2,6 @@
 const directiveTemplate = require('./sidebar.tpl.html')
 
 module.exports = () => {
-
-	console.log('return directive')
 	
 	return {
 		scope: { },

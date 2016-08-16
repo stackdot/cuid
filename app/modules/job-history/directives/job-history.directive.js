@@ -9,7 +9,7 @@ module.exports = () => {
 			historyId: '@'
 		},
 		restrict: 'E',
-		replace: false,
+		replace: true,
 		template: directiveTemplate,
 		controller: 'jobHistoryCtrl',
 		controllerAs: 'ctrl'

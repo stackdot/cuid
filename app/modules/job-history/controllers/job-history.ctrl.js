@@ -8,4 +8,8 @@ module.exports = ( $scope, jobHistoryService ) => {
 
 	jobHistoryService.get( $scope.jobId, $scope.historyId )
 
+	$scope.jsonDump = () => {
+		return JSON.stringify( $scope.data.history.data, null, 4 )
+	}
+
 }

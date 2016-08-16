@@ -6,5 +6,5 @@ const directive = require('./directives/job-info.directive.js')
 
 module.exports = angular.module('app.jobInfo', [] )
 	.service( 'jobInfoService', [ '$http', service ] )
-	.controller( 'jobInfoCtrl', [ '$scope', 'jobInfoService', controller ] )
+	.controller( 'jobInfoCtrl', [ '$scope', '$state', 'jobInfoService', controller ] )
 	.directive( 'jobInfo', [ directive ] )

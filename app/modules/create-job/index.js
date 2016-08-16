@@ -6,5 +6,5 @@ const directive = require('./directives/create-job.directive.js')
 
 module.exports = angular.module('app.createJob', [] )
 	.service( 'createJobService', [ '$http', service ] )
-	.controller( 'createJobCtrl', [ '$scope', 'createJobService', controller ] )
+	.controller( 'createJobCtrl', [ '$scope', '$state', 'createJobService', controller ] )
 	.directive( 'createJob', [ directive ] )

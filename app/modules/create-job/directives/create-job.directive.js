@@ -6,7 +6,7 @@ module.exports = () => {
 	return {
 		scope: { },
 		restrict: 'E',
-		replace: false,
+		replace: true,
 		template: directiveTemplate,
 		controller: 'createJobCtrl',
 		controllerAs: 'ctrl'

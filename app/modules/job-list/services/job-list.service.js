@@ -2,17 +2,15 @@
 module.exports = class JobListService {
 	constructor( $http ){
 
-		console.log('constuct', $http)
-
 		this.$http = $http
 		this.data = {
 			jobs: []
 		}
 
-		this.get()
+		// this.get()
 
 	}
-	get( callback ){
+	get(){
 		return this.$http({
 			method: 'GET',
 			withCredentials: true,

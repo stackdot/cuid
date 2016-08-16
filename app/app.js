@@ -48,10 +48,10 @@ angular.module('app', [
 	$stateProvider
 		.state('jobs', {
 			url: '/jobs',
-			abstract: true,
+			// abstract: true,
 			template: layoutTpl,
 		})
-		.state('jobs.all',{
+		.state('jobs.all', {
 			url: '/all',
 			views: {
 				sidebar: {
@@ -59,6 +59,17 @@ angular.module('app', [
 				},
 				content: {
 					template: '<job-list></job-list>'
+				}
+			}
+		})
+		.state('jobs.create', {
+			url: '/create',
+			views: {
+				sidebar: {
+					template: '<sidebar></sidebar>'
+				},
+				content: {
+					template: '<create-job></create-job>'
 				}
 			}
 		})
@@ -79,10 +90,11 @@ angular.module('app', [
 		.state('jobs.job.history', {
 			url: '/:historyId',
 			views: {
-				details: {
+				jobdetails: {
 					template: '<job-history job-id="{{jobId}}" history-id="{{historyId}}"></job-history>',
 					controller: ['$scope', '$stateParams', function( $scope, $stateParams ){
 						$scope.jobId = $stateParams.id
+						console.log('job history')
 						$scope.historyId = $stateParams.historyId
 					}]
 				}

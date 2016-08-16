@@ -8,13 +8,18 @@
 		<md-toolbar class="md-theme-red">
 			<h1 class="md-toolbar-tools"> Cron UI </h1>
 		</md-toolbar>
-		<md-content layout-padding flex>
-			<md-button md-no-ink aria-label="Create Job" class="md-primary">Create Job</md-button>
-			<a ng-repeat="job in data.jobs" ui-sref="jobs.job({ id:job._id })">
-				<div>
-					{{job.name}}
-				</div>
-			</a>
+		<md-content flex layout="column">
+
+			<md-list>
+				<md-list-item ng-repeat="job in data.jobs" ui-sref="jobs.job({ id:job._id })">
+					<p>{{job.name}}</p>
+				</md-list-item>
+			</md-list>
+
+			<md-button md-no-ink aria-label="Create Job" class="md-raised md-primary" ui-sref="jobs.create">
+				Create Job
+			</md-button>
+
 		</md-content>
 	</md-sidenav>
 </div>

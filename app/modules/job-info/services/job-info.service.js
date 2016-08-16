@@ -32,4 +32,13 @@ module.exports = class jobInfoService {
 	}
 
 
+	deleteJob( id ){
+		return this.$http({
+			method: 'DELETE',
+			withCredentials: true,
+			url: 'http://localhost:8080/v1/jobs/'+id
+		})
+	}
+
+
 }

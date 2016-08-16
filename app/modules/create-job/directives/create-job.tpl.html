@@ -1,6 +1,84 @@
-<div>
-	
-	<h3>{{ctrl.title}}</h3>
-	create-job directive 
+<div flex="100">
+
+	<md-toolbar md-scroll-shrink md-theme="default">
+		<div class="md-toolbar-tools">
+			<h3>
+				<md-button hide-gt-sm class="md-warn" ng-click="sidebar()">Sidebar</md-button> <span> Schedule Job</span>
+			</h3>
+		</div>
+	</md-toolbar>
+	<div id="create-job">
+
+		<h3 class="md-headline">Job Details:</h3>
+		<p class="md-body-1">Enter the details below to create a new CRON job</p>
+
+		<form ng-submit="submitForm()" layout="column">
+			
+			<div layout="row">
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Name</label>
+					<input required ng-model="cron.name">
+				</md-input-container>
+
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Description</label>
+					<input ng-model="cron.description">
+				</md-input-container>
+			</div>
+			<div layout="row">
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>CRON format:</label>
+					<input required ng-model="cron.cron">
+					<div class="input-hint md-caption">
+						{{ parseText() }}
+					</div>
+				</md-input-container>
+				<div class="md-body-1">
+					<p>Do not include seconds</p>
+					<p>Learn more about CRONs here: <a href="https://github.com/ncb000gt/node-cron#another-cron-example">CRON Examples</a></p>
+				</div>
+			</div>
+
+			<md-divider></md-divider>
+			
+			<h3 class="md-headline">Docker Details:</h3>
+
+			<div layout="row">
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Registry</label>
+					<input required ng-model="meta.auth.registry">
+				</md-input-container>
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Username</label>
+					<input ng-model="meta.auth.user">
+				</md-input-container>
+			</div>
+			<div layout="row">
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Password</label>
+					<input ng-model="meta.auth.password" type="password">
+				</md-input-container>
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Email</label>
+					<input ng-model="meta.auth.email">
+				</md-input-container>
+			</div>
+
+			<div layout="row">
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Image</label>
+					<input required ng-model="meta.image">
+				</md-input-container>
+				<md-input-container class="md-block" flex-gt-xs="50">
+					<label>Command</label>
+					<input required ng-model="meta.cmd">
+				</md-input-container>
+			</div>
+		
+			<md-button class="md-raised md-primary" type="submit">Create Job</md-button>
+
+		</form>
+
+	</div>
 
 </div>

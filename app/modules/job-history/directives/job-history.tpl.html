@@ -1,13 +1,46 @@
-<div id="job-history">
-	
-	<h3>{{ctrl.title}}</h3>
-	<md-subheader>
-		Logs:
-	</md-subheader>
+<div layout="column" flex="auto">
 
-	<div class="md-headline">Logs:</div>
-	<div class="log-line" ng-repeat="line in data.history.logs track by $index">
-		<div ng-bind-html="line | logParser"></div>
-	</div>
+	<section class="details" flex="none">
+		<img style="max-width: 60px;" src="/images/type-{{data.job.type}}.png" alt="">
+		<h3 class="md-headline">Kue Job: {{data.history.kueJob}} ( {{data.history.state}} )</h3>
+	</section>
+	<md-content flex="auto">
 
+
+
+		<md-subheader> Details </md-subheader>
+		<div class="log-line">
+			Created: {{data.history.data.created}} ( <span am-time-ago="data.job.created"></span> )
+		</div>
+		<div class="log-line">
+			Attempts: {{data.history.data.attempts}}
+		</div>
+		<div class="log-line">
+			CRON at run: {{data.history.data.cron}}
+		</div>
+		<div ng-if="data.history.meta.error" class="log-line">
+			Error:
+			<pre>{{data.history.meta.error}}</pre>
+		</div>
+
+
+
+
+
+		<md-subheader> Logs </md-subheader>
+		<div class="log-line md-body-1">
+			<pre>{{data.history.logs.join('\n')}}</pre>
+		</div>
+
+
+
+
+		<md-subheader> JSON Dump </md-subheader>
+		<div class="log-line md-body-1">
+			<pre>{{jsonDump()}}</pre>
+		</div>
+
+
+
+	</md-content>
 </div>

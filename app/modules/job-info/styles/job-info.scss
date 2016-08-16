@@ -12,12 +12,24 @@
 	height: 30px;
 	background: #f2f2f2;
 	border-radius: 100%;
+	display: inline-block;
+}
 
-	&.complete {
-		background: green;
-	}
 
-	&.failed {
-		background: red;
-	}
+.enabled-line {
+	height: 5px;
+}
+.enabled-true {
+	background: green;
+}
+.enabled-false {
+	background: red;
+}
+
+.status-failed {
+	background: red;
+}
+
+.status-complete {
+	background: green;
 }

@@ -15,4 +15,21 @@ module.exports = class createJobService {
 			console.log('Err', err)
 		})
 	}
+
+	createJob( data, callback ){
+
+		console.log('new cron data', data)
+
+		return this.$http({
+			method: 'POST',
+			withCredentials: true,
+			url: 'http://localhost:8080/v1/jobs',
+			data: data,
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+
+	}
+
 }
