@@ -44,7 +44,6 @@ angular.module('app', [
 		.accentPalette('green')
 
 	// URL Routing:
-	$urlRouterProvider.otherwise('/jobs/all')
 	$stateProvider
 		.state('jobs', {
 			url: '/jobs',
@@ -101,7 +100,7 @@ angular.module('app', [
 			}
 		})
 		
-
+	$urlRouterProvider.otherwise('/jobs/all')
 
 }])
 .controller('app.main', ['$scope', '$state', function( $scope, $state ){

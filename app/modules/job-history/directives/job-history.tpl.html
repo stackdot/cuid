@@ -29,7 +29,7 @@
 
 		<md-subheader> Logs </md-subheader>
 		<div class="log-line md-body-1">
-			<pre>{{data.history.logs.join('\n')}}</pre>
+			<div ng-repeat="log in data.history.logs track by $index" ng-bind-html="log | logParser"></div>
 		</div>
 
 
