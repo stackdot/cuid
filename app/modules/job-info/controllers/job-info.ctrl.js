@@ -25,6 +25,13 @@ module.exports = ( $scope, $state, jobInfoService ) => {
 		return PrettyCron.toString( $scope.data.job.cron )
 	}
 
+	$scope.updateEnabled = () => {
+		console.log('update job')
+		jobInfoService.update( $scope.data.job._id, $scope.data.job ).catch(( err ) => {
+			console.log('update err', err)
+		})
+	}
+
 	$scope.deleteJob = () => {
 		console.log('Delete Job')
 

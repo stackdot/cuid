@@ -32,6 +32,23 @@ module.exports = class jobInfoService {
 	}
 
 
+	update( id, data ){
+		return this.$http({
+			method: 'PUT',
+			withCredentials: true,
+			data: data,
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url: 'http://localhost:8080/v1/jobs/'+id
+		}).then(( res ) => {
+			// this.data.history = res.data
+		}).catch(( err ) => {
+			console.log('erro', err)
+		})
+	}
+
+
 	deleteJob( id ){
 		return this.$http({
 			method: 'DELETE',

@@ -25,7 +25,7 @@
 					<p>Next Run: <strong>{{nextRun()}}</strong></p>
 				</div>
 				<div flex="20">
-					<md-switch ng-model="data.job.enabled" aria-label="Job Enabled"></md-switch>
+					<md-switch ng-change="updateEnabled()" ng-model="data.job.enabled" aria-label="Job Enabled"></md-switch>
 					Job Enabled: {{data.job.enabled}}
 				</div>
 
